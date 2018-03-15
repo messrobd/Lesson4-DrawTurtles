@@ -18,9 +18,15 @@ def drawSolidTriangle(side, pen):
 def drawFractal(side):
     pen = turtle.Turtle()
 
-    drawSolidTriangle(side, pen)
-    pen.forward(side)
-    drawSolidTriangle(side, pen)
+    left_turns = [0,0,120]
+    forward_steps = [0,side,side]
+
+    for turn, step in zip(left_turns, forward_steps):
+        pen.left(turn)
+        pen.forward(step)
+        pen.right(turn)
+        drawSolidTriangle(side, pen)
+
 
 
 
