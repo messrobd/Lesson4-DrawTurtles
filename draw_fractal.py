@@ -8,15 +8,14 @@ def drawSolidTriangle(side, pen):
     #pen = turtle.Turtle()
 
     pen.fill(True)
-    sides = 3
-    while sides > 0:
+    for _ in range (3):
         pen.forward(side)
         pen.left(120)
-        sides -= 1
     pen.fill(False)
 
 def drawFractal(side):
     pen = turtle.Turtle()
+    pen.hideturtle()
 
     left_turns = [0,0,120]
     forward_steps = [0,side,side]
