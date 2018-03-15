@@ -7,11 +7,13 @@ window.bgcolor("lightgrey")
 def drawSolidTriangle(size):
     pen = turtle.Turtle()
 
+    pen.fill(True)
     sides = 3
     while sides > 0:
         pen.forward(size)
         pen.left(120)
         sides -= 1
+    pen.fill(False)
 
 
 
