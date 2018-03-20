@@ -39,26 +39,6 @@ def drawFractal(side, order, pen):
         pen.forward(side / 2)
         pen.left(120)
 
-
-
-
-
-
-#math.pow(3, order)
-
-
-
-
-
-
 drawFractal(100, 2, pen)
 
 window.exitonclick()
-
-#tests
-def tests():
-    side = 100
-
-    print calcDxDy(side)
-
-#tests()
