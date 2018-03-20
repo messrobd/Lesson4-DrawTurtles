@@ -4,6 +4,7 @@ import math
 window = turtle.Screen()
 window.setup(width=500, height=500, startx=100, starty=100)
 window.bgcolor("lightgrey")
+pen = turtle.Turtle()
 
 def drawSolidTriangle(side, pen):
     #pen = turtle.Turtle()
@@ -35,21 +36,26 @@ def calcTranslations(side):
 
     return dx_translations, dy_translations
 
-def drawFractal(side):
-    pen = turtle.Turtle()
+def drawFractal(side, order, pen):
     pen.hideturtle()
-
-    x_origin, y_origin = 0, 0
-    dx_translations, dy_translations = calcTranslations(side)
-
     pen.up()
-    pen.goto(x_origin, y_origin)
-    for dx, dy in zip(dx_translations, dy_translations):
-        x_pos = pen.xcor() + dx
-        y_pos = pen.ycor() + dy
-        pen.goto(x_pos, y_pos)
-        drawSolidTriangle(side, pen)
 
+    turns = [0, 0, 120]
+    steps = [0, side, side]
+
+    if order == 0:
+        drawSolidTriangle(side, pen)
+        return
+    else:
+        for turn, step in zip(turns, steps):
+            pen.left(turn)
+            pen.forward(step / 2)
+            pen.right(turn)
+            drawFractal(side / 2, order - 1, pen)
+        #return pen to origin
+        pen.right(120)
+        pen.forward(side / 2)
+        pen.left(120)
 
 
 
@@ -63,7 +69,7 @@ def drawFractal(side):
 
 
 
-drawFractal(100)
+drawFractal(100, 2, pen)
 
 window.exitonclick()
 
