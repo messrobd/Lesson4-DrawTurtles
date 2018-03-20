@@ -11,7 +11,6 @@ pen.goto(origin)
 pen.hideturtle()
 
 def drawSolidTriangle(side, pen):
-    #pen = turtle.Turtle()
     if not pen.isdown():
         pen.down()
 
@@ -32,6 +31,7 @@ def drawFractal(side, order, pen):
         drawSolidTriangle(side, pen)
         return
     else:
+        #recursively call func in anticlockwise progression
         for turn, step in zip(turns, steps):
             pen.left(turn)
             pen.forward(step / 2)
