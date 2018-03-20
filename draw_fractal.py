@@ -24,23 +24,19 @@ def drawSolidTriangle(side, pen):
 def drawFractal(side, order, pen):
     pen.up()
 
-    turns = [0, 0, 120]
-    steps = [0, side, side]
+    turns = [0, 120, 240]
+    steps = [side, side, side]
 
     if order == 0:
         drawSolidTriangle(side, pen)
         return
     else:
-        #recursively call func in anticlockwise progression
+        #recursively call func in anticlockwise progression & return pen to origin 
         for turn, step in zip(turns, steps):
+            drawFractal(side / 2, order - 1, pen)
             pen.left(turn)
             pen.forward(step / 2)
             pen.right(turn)
-            drawFractal(side / 2, order - 1, pen)
-        #return pen to origin
-        pen.right(120)
-        pen.forward(side / 2)
-        pen.left(120)
 
 drawFractal(200, 3, pen)
 
