@@ -1,10 +1,14 @@
 import turtle
-import math
 
 window = turtle.Screen()
 window.setup(width=500, height=500, startx=100, starty=100)
 window.bgcolor("lightgrey")
 pen = turtle.Turtle()
+origin = -100, -100
+
+pen.up()
+pen.goto(origin)
+pen.hideturtle()
 
 def drawSolidTriangle(side, pen):
     #pen = turtle.Turtle()
@@ -19,7 +23,6 @@ def drawSolidTriangle(side, pen):
     pen.up()
 
 def drawFractal(side, order, pen):
-    pen.hideturtle()
     pen.up()
 
     turns = [0, 0, 120]
@@ -39,6 +42,6 @@ def drawFractal(side, order, pen):
         pen.forward(side / 2)
         pen.left(120)
 
-drawFractal(100, 2, pen)
+drawFractal(200, 3, pen)
 
 window.exitonclick()
