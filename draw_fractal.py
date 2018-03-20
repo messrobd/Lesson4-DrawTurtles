@@ -18,24 +18,6 @@ def drawSolidTriangle(side, pen):
     pen.fill(False)
     pen.up()
 
-def calcTranslations(side):
-    equilateral_internal_angle = 60#degrees
-    angle = math.radians(equilateral_internal_angle)
-
-    dx_1 = 0
-    dy_1 = 0
-
-    dx_2 = side
-    dy_2 = 0
-
-    dx_3 = -side / 2
-    dy_3 = side * math.sin(angle)
-
-    dx_translations = [dx_1, dx_2, dx_3]
-    dy_translations = [dy_1, dy_2, dy_3]
-
-    return dx_translations, dy_translations
-
 def drawFractal(side, order, pen):
     pen.hideturtle()
     pen.up()
